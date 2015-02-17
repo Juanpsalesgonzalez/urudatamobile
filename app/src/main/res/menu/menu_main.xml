@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ctr.myfirstapplication.DisplayMessageActivity" >
+
+    <item
+        android:title="@string/menu_action_close"
+        android:id="@+id/action_close"
+        android:icon="@drawable/btn_close_normal"
+        android:showAsAction="always"
+        android:visible="true"
+        android:enabled="true"/>
+</menu>
+
