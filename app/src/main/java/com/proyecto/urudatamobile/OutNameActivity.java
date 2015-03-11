@@ -29,7 +29,7 @@ public class OutNameActivity extends ActionBarActivity {
         name = intent.getStringExtra("name_outsourcer");
         pass = intent.getStringExtra("pas_outsourcer");
         String url="http://192.168.11.10:8080/urudata/confirm?id=" + name + "&pass=" + pass ;
-//        String url="http://192.168.1.2:8080/urudata/confirm?id=" + name + "&pass=" + pass ;
+//        String url="https://192.168.1.2:8443/urudata/confirm?id=" + name + "&pass=" + pass ;
         new WebClientOutByIdTask(this).execute(url);
     }
 

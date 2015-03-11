@@ -22,6 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             android:layout_below="@+id/id_label_text"
             android:layout_alignLeft="@+id/name_label_text"
             android:layout_alignStart="@+id/name_label_text">
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
+            android:imeOptions="actionDone"
             android:layout_below="@+id/pass_label_text"
             android:layout_alignLeft="@+id/pass_label_text"
             android:layout_alignStart="@+id/pass_label_text">

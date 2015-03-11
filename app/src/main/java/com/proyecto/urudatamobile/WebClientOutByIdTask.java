@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,6 +27,7 @@ public class WebClientOutByIdTask extends AsyncTask <String, String, OutsourcerW
             String url=urls[0];
             RestTemplate rT = new RestTemplate();
             rT.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+	    rT.setRequestFactory(new HttpComponentsClientHttpRequestFactory(HttpUtils.getNewHttpClient()));	
             OutsourcerWebClient o = rT.getForObject(url,OutsourcerWebClient.class);
             return o;
         }  catch(Exception e) { e.printStackTrace();}
