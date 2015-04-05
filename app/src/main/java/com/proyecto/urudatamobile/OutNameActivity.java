@@ -26,9 +26,10 @@ public class OutNameActivity extends ActionBarActivity {
         }
 
         Intent intent = getIntent();
-        name = intent.getStringExtra("name_outsourcer");
+        id = intent.getStringExtra("name_outsourcer");
         pass = intent.getStringExtra("pas_outsourcer");
-        String url="http://192.168.11.10:8080/urudata/confirm?id=" + name + "&pass=" + pass ;
+        String url="http://ctr.urudata.com/urudata/confirm?id=" + id + "&pass=" + pass;
+//        String url="http://192.168.11.10:8080/urudata/confirm?id=" + name + "&pass=" + pass ;
 //        String url="https://192.168.1.2:8443/urudata/confirm?id=" + name + "&pass=" + pass ;
         new WebClientOutByIdTask(this).execute(url);
     }
@@ -61,13 +62,6 @@ public class OutNameActivity extends ActionBarActivity {
 
     public void botonSalir(View view){
         salir();
-    }
-
-    public void confirm(View v) {
-//              String url="http://192.168.1.2:8080/urudata/confirm?id=25";
-       // String url="http://192.168.1.2:8080/urudata/confirm?id=" + id;
-       // new WebClientOutByIdTask(this).execute(url);
-
     }
 
     public void setName(String n){

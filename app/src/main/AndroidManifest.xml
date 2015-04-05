@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -33,6 +34,10 @@
         <activity
             android:name=".IPActivity"
             android:label="@string/title_activity_ip" >
+        </activity>
+        <activity
+            android:name=".licenciaActivity"
+            android:label="@string/title_activity_licencia" >
         </activity>
     </application>
 

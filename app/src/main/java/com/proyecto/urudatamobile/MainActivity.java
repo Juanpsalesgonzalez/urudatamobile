@@ -23,12 +23,9 @@ package com.proyecto.urudatamobile;
          * recently supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it is null.</b>
          */
 
-        public static boolean isQuit = false;
+    public static boolean isQuit = false;
 
-
-        public static void setQuit(boolean flag){
-            isQuit=flag;
-        }
+// Metodos de Android, se sobrescriben,
 
      @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -38,8 +35,6 @@ package com.proyecto.urudatamobile;
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.container, new PlaceholderFragment()).commit();
             }
-
-
         }
 
         @Override
@@ -50,17 +45,6 @@ package com.proyecto.urudatamobile;
             return super.onCreateOptionsMenu(menu);
         }
 
-        public void outById(View view){
-
-            Intent intent = new Intent(this,com.proyecto.urudatamobile.OutNameActivity.class);
-            EditText editTextName = (EditText) findViewById(R.id.id_outsourcer);
-            String name = editTextName.getText().toString();
-            EditText editTextPass = (EditText) findViewById(R.id.pass_outsourcer);
-            String pass = editTextPass.getText().toString();
-            intent.putExtra("name_outsourcer", name);
-            intent.putExtra("pass_outsourcer", pass);
-            startActivity(intent);
-        }
          @Override
          public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -82,6 +66,32 @@ package com.proyecto.urudatamobile;
                      }
                  }
 
+// Metodos propios de la app
+
+     public static void setQuit(boolean flag){
+         isQuit=flag;
+     }
+
+     public void outById(View view){
+
+         Intent intent = new Intent(this,com.proyecto.urudatamobile.OutNameActivity.class);
+         EditText editTextName = (EditText) findViewById(R.id.id_outsourcer);
+         String name = editTextName.getText().toString();
+         EditText editTextPass = (EditText) findViewById(R.id.pass_outsourcer);
+         String pass = editTextPass.getText().toString();
+         intent.putExtra("name_outsourcer", name);
+         intent.putExtra("pass_outsourcer", pass);
+         startActivity(intent);
+     }
+
+     public void licencia(View view){
+         Intent intent = new Intent(this,com.proyecto.urudatamobile.licenciaActivity.class);
+         startActivity(intent);
+     }
+
+
+
+// Fragmento de pantalla
 
 public static class PlaceholderFragment extends Fragment {
 

@@ -27,10 +27,14 @@ public class WebClientOutByIdTask extends AsyncTask <String, String, OutsourcerW
             String url=urls[0];
             RestTemplate rT = new RestTemplate();
             rT.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-	    rT.setRequestFactory(new HttpComponentsClientHttpRequestFactory(HttpUtils.getNewHttpClient()));	
+	        rT.setRequestFactory(new HttpComponentsClientHttpRequestFactory(HttpUtils.getNewHttpClient()));
             OutsourcerWebClient o = rT.getForObject(url,OutsourcerWebClient.class);
+            System.out.println("Objeto Recibido");
+            System.out.println(o.toString());
             return o;
-        }  catch(Exception e) { e.printStackTrace();}
+        }  catch(Exception e) {
+            System.out.println("Fuck You");
+            e.printStackTrace();}
         return null;
     }
 

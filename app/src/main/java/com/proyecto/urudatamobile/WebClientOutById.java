@@ -58,7 +58,6 @@ public class WebClientOutById extends AsyncTask<String, String, String> {
         return builder.toString();
     }
 
-//{"id":25,"nombre":"Juan Pablo","direccion":null,"proyecto":null,"celular":null,"status":null,"markIn":null,"markOut":null}
 
 
     protected void onPostExecute(String result){
