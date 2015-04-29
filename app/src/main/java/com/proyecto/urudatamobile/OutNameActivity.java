@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class OutNameActivity extends ActionBarActivity {
 
-    String name,pass,id;
+    String name,pass,user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,13 @@ public class OutNameActivity extends ActionBarActivity {
         }
 
         Intent intent = getIntent();
-        id = intent.getStringExtra("name_outsourcer");
-        pass = intent.getStringExtra("pas_outsourcer");
-        String url="http://ctr.urudata.com/urudata/confirm?id=" + id + "&pass=" + pass;
+        user = intent.getStringExtra("name_outsourcer");
+        pass = intent.getStringExtra("pass_outsourcer");
+//        String url="http://ctr.urudata.com/urudata/confirm";
 //        String url="http://192.168.11.10:8080/urudata/confirm?id=" + name + "&pass=" + pass ;
-//        String url="https://192.168.1.2:8443/urudata/confirm?id=" + name + "&pass=" + pass ;
-        new WebClientOutByIdTask(this).execute(url);
+        //String url="https://192.168.1.2:8080/urudata/rest/confirm";
+        String url="http://192.168.1.2:8080/urudata/rest/confirm";
+        new WSOutsourcerTask(this).execute(url,user, pass);
     }
 
     @Override

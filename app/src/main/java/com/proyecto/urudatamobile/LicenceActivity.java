@@ -1,6 +1,6 @@
 package com.proyecto.urudatamobile;
 
-import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,10 +13,11 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 
-public class licenciaActivity extends ActionBarActivity {
+public class LicenceActivity extends ActionBarActivity {
 
 
     String comment;
+    String user, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +107,20 @@ public class licenciaActivity extends ActionBarActivity {
     }
 
     public void confirmaLicencia(View v){
-        System.out.println(comment);
-        TextView t =(TextView)this.findViewById(R.id.editText_fechaFin);
-        System.out.println(t.getText());
-        TextView s =(TextView)this.findViewById(R.id.editText_fechaFin);
-        System.out.println(s.getText());
+
+        TextView endDateTV, initDateTV;
+        String initDate, endDate;
+
+        endDateTV = (TextView)this.findViewById(R.id.editText_fechaFin);
+        initDateTV = (TextView)this.findViewById(R.id.editText_fechaFin);
+        initDate = initDateTV.getText().toString();
+        endDate = endDateTV.getText().toString();
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("name_outsourcer");
+        pass = intent.getStringExtra("pass_outsourcer");
+        new WSOutsourcerTask(this).execute(user, pass,endDate,initDate,comment);
+
     }
 
     /**

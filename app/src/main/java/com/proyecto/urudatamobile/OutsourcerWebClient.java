@@ -15,6 +15,11 @@ public class OutsourcerWebClient {
     private String id;
     private String nombre;
 
+    public OutsourcerWebClient(String n, String i){
+        id=i;
+        nombre=n;
+    }
+
     public String getId() {
         return this.id;
     }

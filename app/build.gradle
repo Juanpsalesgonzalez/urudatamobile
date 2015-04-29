@@ -1,5 +1,4 @@
 apply plugin: 'android'
-apply plugin: "sonar-runner"
 
 android {
     compileSdkVersion 21

@@ -35,6 +35,12 @@ package com.proyecto.urudatamobile;
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.container, new PlaceholderFragment()).commit();
             }
+         //Intent intent = new Intent(this,com.proyecto.urudatamobile.OutNameActivity.class);
+         //String name = "mgarcia";
+         //String pass = "123456";
+         //intent.putExtra("name_outsourcer", name);
+         //intent.putExtra("pass_outsourcer", pass);
+         //startActivity(intent);
         }
 
         @Override
@@ -75,18 +81,26 @@ package com.proyecto.urudatamobile;
      public void outById(View view){
 
          Intent intent = new Intent(this,com.proyecto.urudatamobile.OutNameActivity.class);
+         loadIntent(intent, view);
+         startActivity(intent);
+     }
+
+     public void licencia(View view){
+
+         Intent intent = new Intent(this,LicenceActivity.class);
+         loadIntent(intent, view);
+         startActivity(intent);
+     }
+
+     private Intent loadIntent(Intent intent, View view){
+
          EditText editTextName = (EditText) findViewById(R.id.id_outsourcer);
          String name = editTextName.getText().toString();
          EditText editTextPass = (EditText) findViewById(R.id.pass_outsourcer);
          String pass = editTextPass.getText().toString();
          intent.putExtra("name_outsourcer", name);
          intent.putExtra("pass_outsourcer", pass);
-         startActivity(intent);
-     }
-
-     public void licencia(View view){
-         Intent intent = new Intent(this,com.proyecto.urudatamobile.licenciaActivity.class);
-         startActivity(intent);
+         return intent;
      }
 
 

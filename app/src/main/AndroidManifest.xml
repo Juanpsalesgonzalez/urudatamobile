@@ -36,7 +36,7 @@
             android:label="@string/title_activity_ip" >
         </activity>
         <activity
-            android:name=".licenciaActivity"
+            android:name=".LicenceActivity"
             android:label="@string/title_activity_licencia" >
         </activity>
     </application>
