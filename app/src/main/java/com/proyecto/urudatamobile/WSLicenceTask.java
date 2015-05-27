@@ -15,9 +15,15 @@ public class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClien
     }
 
     @Override
+    protected void onPreExecute(){
+        super.onPreExecute();
+        System.out.println("hola");
+    }
+    @Override
     protected OutsourcerWebClient doInBackground(String... params) {
 
         String user, pass,endDate,initDate,comment, cookie;
+
 
         user = params[0];
         pass = params[1];
@@ -37,27 +43,12 @@ public class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClien
         return outsourcer;
 
     }
-
-/*        response= WSServices.loginToWS(user, pass);
-        if (response == null){
-            return null;
-        }
-        cookie=WSServices.getCookie(response);
-        if (response ==null){
-            return null;
-        }
-
-
-        OutsourcerWebClient outsourcer = WSServices.outByName(url, cookie, user);
-
-
-        if (outsourcer ==null){
-            return null;
-        }
-        return outsourcer;
+    @Override
+    protected void onPostExecute(OutsourcerWebClient outsourcer) {
+       String s=outsourcer.getNombre();
+       System.out.println(s);
+       actividad.confirmMessage(outsourcer);
 
     }
-
-}  */
-
 }
+

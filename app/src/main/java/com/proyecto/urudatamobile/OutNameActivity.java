@@ -28,11 +28,7 @@ public class OutNameActivity extends ActionBarActivity {
         Intent intent = getIntent();
         user = intent.getStringExtra("name_outsourcer");
         pass = intent.getStringExtra("pass_outsourcer");
-//        String url="http://ctr.urudata.com/urudata/confirm";
-//        String url="http://192.168.11.10:8080/urudata/confirm?id=" + name + "&pass=" + pass ;
-        //String url="https://192.168.1.2:8080/urudata/rest/confirm";
-        String url="http://192.168.1.2:8080/urudata/rest/confirm";
-        new WSOutsourcerTask(this).execute(url,user, pass);
+        new WSOutsourcerTask(this).execute(user, pass);
     }
 
     @Override
@@ -54,6 +50,46 @@ public class OutNameActivity extends ActionBarActivity {
                 default:
                     return super.onOptionsItemSelected(item);
             }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
     protected void salir(){

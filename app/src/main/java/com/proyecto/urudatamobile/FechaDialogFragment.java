@@ -34,6 +34,7 @@ public  class FechaDialogFragment extends DialogFragment
         actividadPadre=l;
     }
     public void setTextoPadre(TextView t){
+
         textoPadre=t;
     }
 

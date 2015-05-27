@@ -1,9 +1,9 @@
 package com.proyecto.urudatamobile;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,12 +12,17 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 
 public class LicenceActivity extends ActionBarActivity {
 
 
     String comment;
     String user, pass;
+    OutsourcerWebClient outsourcer;
+
+    String initDate, endDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,16 @@ public class LicenceActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("name_outsourcer");
+        pass = intent.getStringExtra("pass_outsourcer");
+        initDate="05-25-2015";
+        endDate="05-27-2015";
+        comment="Paseo";
+
+        new WSLicenceTask(this).execute(user, pass, initDate, endDate, comment);
+
     }
 
 
@@ -54,25 +69,26 @@ public class LicenceActivity extends ActionBarActivity {
     }
 
     public void cargaFechaFin(View v) {
-        TextView t =(TextView)this.findViewById(R.id.editText_fechaIni);
-        mostrarDatePicker(v,t);
+        TextView t = (TextView) this.findViewById(R.id.editText_fechaIni);
+        mostrarDatePicker(v, t);
     }
 
     public void cargaFechaInicio(View v) {
-        TextView t =(TextView)this.findViewById(R.id.editText_fechaFin);
-        mostrarDatePicker(v,t);
+        TextView t = (TextView) this.findViewById(R.id.editText_fechaFin);
+        mostrarDatePicker(v, t);
     }
 
-    public void mostrarDatePicker(View v,TextView t) {
+    public void mostrarDatePicker(View v, TextView t) {
+        t.setText(HttpUtils.currDate());
         FechaDialogFragment fechaFragment = new FechaDialogFragment();
         fechaFragment.setActividadPadre(this);
         fechaFragment.setTextoPadre(t);
         fechaFragment.show(getFragmentManager(), "Calendario");
     }
 
-    public void setDate(TextView t, int ano, int mes, int dia){
+    public void setDate(TextView t, int ano, int mes, int dia) {
         t.setText(new StringBuilder().append(dia).append("/")
-                .append(mes+1).append("/")
+                .append(mes + 1).append("/")
                 .append(ano).append(" "));
 
     }
@@ -82,46 +98,82 @@ public class LicenceActivity extends ActionBarActivity {
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.radio_lic_comun:
                 if (checked) {
-                    comment = "Licencia Reglamentaria";
+                    comment = "Reglamentaria";
                     break;
                 }
             case R.id.radio_lic_enfermedad:
                 if (checked) {
-                    comment = "Licencia por Enfermedad";
+                    comment = "Enfermedad";
                     break;
                 }
             case R.id.radio_lic_estudio:
                 if (checked) {
-                    comment = "Licencia por Estudio";
+                    comment = "Estudio";
                     break;
                 }
             case R.id.radio_lic_otros:
                 if (checked) {
-                    comment = "Licencia Otros";
+                    comment = "Otros";
                     break;
                 }
         }
     }
 
+    public void loginError() {
+        System.out.println("Login Error");
+    }
+
+    public void confirmError() {
+        System.out.println("Error al confirmar licencia");
+    }
+
+    public void setOutsourcer(OutsourcerWebClient o) {
+        if (outsourcer != null) {
+            outsourcer = o;
+        }
+    }
     public void confirmaLicencia(View v){
 
         TextView endDateTV, initDateTV;
         String initDate, endDate;
 
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
         endDateTV = (TextView)this.findViewById(R.id.editText_fechaFin);
         initDateTV = (TextView)this.findViewById(R.id.editText_fechaFin);
         initDate = initDateTV.getText().toString();
         endDate = endDateTV.getText().toString();
+        if (initDate == null) {
+            initDate = day + "/" + month + "/" + year;
+        }
+        if (endDate == null) {
+            endDate = day + "/" + month + "/" + year;
+        }
+        if (comment == null){
+            comment="Licencia por Enfermedad";
+        }
 
         Intent intent = getIntent();
         user = intent.getStringExtra("name_outsourcer");
         pass = intent.getStringExtra("pass_outsourcer");
-        new WSOutsourcerTask(this).execute(user, pass,endDate,initDate,comment);
 
+        new WSLicenceTask(this).execute(user, pass, endDate, initDate, comment);
     }
+
+
+//        new WSLicenceTask(this).execute(user, pass, endDate, initDate, comment);
+
+
+    public void confirmMessage(OutsourcerWebClient o) {
+        System.out.println(o.getNombre());
+    }
+
 
     /**
      * A placeholder fragment containing a simple view.
@@ -139,3 +191,5 @@ public class LicenceActivity extends ActionBarActivity {
         }
     }
 }
+
+

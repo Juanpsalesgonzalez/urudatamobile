@@ -1,6 +1,5 @@
 package com.proyecto.urudatamobile;
 
-import java.security.KeyStore;
 import org.apache.http.HttpVersion;
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ClientConnectionManager;
@@ -14,10 +13,25 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
+
+import java.security.KeyStore;
+import java.util.Calendar;
+
 /**
  * Created by juan on 07/03/15.
  */
 public class HttpUtils {
+
+    public static String currDate(){
+
+        String date;
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        date=day + "/" + month + "/" + year;
+        return date;
+    }
 
 	public static HttpClient getNewHttpClient() {
 

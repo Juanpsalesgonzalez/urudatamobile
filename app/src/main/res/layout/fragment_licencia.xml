@@ -21,7 +21,7 @@
         android:text="@string/button_fechaIni"
         android:id="@+id/button_fechaIni"
         android:onClick="cargaFechaInicio"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -43,8 +43,8 @@
         android:id="@+id/editText_fechaFin"
         android:layout_alignBottom="@+id/button_fechaIni"
         android:layout_toRightOf="@+id/button_fechaIni"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -52,27 +52,19 @@
         android:id="@+id/editText_fechaIni"
         android:layout_alignBottom="@+id/buttonfechaFin"
         android:layout_toRightOf="@+id/button_fechaIni"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipo de Licencia"
-        android:id="@+id/textView2"
-        android:layout_centerVertical="true" />
+        android:layout_alignRight="@+id/editText_fechaFin"
+        android:layout_alignEnd="@+id/editText_fechaFin" />
 
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/textView2"
+        android:id="@+id/radioGroup"
+        android:layout_below="@+id/buttonfechaFin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="31dp"
-        android:id="@+id/radioGroup">
+        android:layout_marginTop="30dp">
 
 
 
@@ -114,8 +106,8 @@
         android:onClick="confirmaLicencia"
         android:id="@+id/button_confirma_lic"
         android:layout_gravity="right"
-        android:layout_above="@+id/editText_fechaFin"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
 </RelativeLayout>
