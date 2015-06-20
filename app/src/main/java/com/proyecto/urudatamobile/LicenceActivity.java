@@ -34,15 +34,6 @@ public class LicenceActivity extends ActionBarActivity {
                     .commit();
         }
 
-        Intent intent = getIntent();
-        user = intent.getStringExtra("name_outsourcer");
-        pass = intent.getStringExtra("pass_outsourcer");
-        initDate="05-25-2015";
-        endDate="05-27-2015";
-        comment="Paseo";
-
-        new WSLicenceTask(this).execute(user, pass, initDate, endDate, comment);
-
     }
 
 
@@ -80,10 +71,10 @@ public class LicenceActivity extends ActionBarActivity {
 
     public void mostrarDatePicker(View v, TextView t) {
         t.setText(HttpUtils.currDate());
-        FechaDialogFragment fechaFragment = new FechaDialogFragment();
-        fechaFragment.setActividadPadre(this);
-        fechaFragment.setTextoPadre(t);
-        fechaFragment.show(getFragmentManager(), "Calendario");
+        //FechaDialogFragment fechaFragment = new FechaDialogFragment();
+        //fechaFragment.setActividadPadre(this);
+        //fechaFragment.setTextoPadre(t);
+        //fechaFragment.show(getFragmentManager(), "Calendario");
     }
 
     public void setDate(TextView t, int ano, int mes, int dia) {
@@ -162,8 +153,17 @@ public class LicenceActivity extends ActionBarActivity {
         Intent intent = getIntent();
         user = intent.getStringExtra("name_outsourcer");
         pass = intent.getStringExtra("pass_outsourcer");
+        // Es necesario crear un Intent y un Activity para poder llamar
+        // al Async Task. El Async Task solo se puede llamar del main/
 
-        new WSLicenceTask(this).execute(user, pass, endDate, initDate, comment);
+        Intent conIntent = new Intent(this,com.proyecto.urudatamobile.LicenceConnectActivity.class);
+        conIntent.putExtra("init",initDate);
+        conIntent.putExtra("end",endDate);
+        conIntent.putExtra("name",user);
+        conIntent.putExtra("pass",pass);
+        conIntent.putExtra("comment",comment);
+        startActivity(conIntent);
+
     }
 
 

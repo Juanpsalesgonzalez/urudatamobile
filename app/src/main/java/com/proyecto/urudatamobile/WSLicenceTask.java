@@ -8,10 +8,11 @@ import android.os.AsyncTask;
  */
 public class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClient>  {
 
-    LicenceActivity actividad;
+    LicenceConnectActivity actividad;
 
     public WSLicenceTask(Activity a){
-        actividad = (LicenceActivity) a;
+        System.out.println(a.toString());
+        actividad = (LicenceConnectActivity) a;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClien
     @Override
     protected void onPostExecute(OutsourcerWebClient outsourcer) {
        String s=outsourcer.getNombre();
-       System.out.println(s);
+  //     System.out.println(s);
        actividad.confirmMessage(outsourcer);
 
     }

@@ -39,6 +39,10 @@
             android:name=".LicenceActivity"
             android:label="@string/title_activity_licencia" >
         </activity>
+        <activity
+            android:name=".LicenceConnectActivity"
+            android:label="@string/title_activity_licence_connect" >
+        </activity>
     </application>
 
 </manifest>
