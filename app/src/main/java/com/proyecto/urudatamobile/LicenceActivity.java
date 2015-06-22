@@ -136,7 +136,7 @@ public class LicenceActivity extends ActionBarActivity {
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        endDateTV = (TextView)this.findViewById(R.id.editText_fechaFin);
+        endDateTV = (TextView)this.findViewById(R.id.editText_fechaIni);
         initDateTV = (TextView)this.findViewById(R.id.editText_fechaFin);
         initDate = initDateTV.getText().toString();
         endDate = endDateTV.getText().toString();
@@ -163,7 +163,7 @@ public class LicenceActivity extends ActionBarActivity {
         conIntent.putExtra("pass",pass);
         conIntent.putExtra("comment",comment);
         startActivity(conIntent);
-
+        finish();
     }
 
 

@@ -146,7 +146,7 @@ public class WSServices {
                     response = rT.exchange(url, HttpMethod.GET, requestEntity, String.class);
                    } catch (Exception e) {
                     e.printStackTrace();
-                    }
+                   }
 
             if (response == null) {
                 System.out.println("Response NULL");

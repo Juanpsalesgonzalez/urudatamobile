@@ -40,20 +40,21 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/editText_fechaIni"
+        android:layout_alignTop="@+id/buttonfechaFin"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/editText_fechaFin"
+        android:layout_alignStart="@+id/editText_fechaFin" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/editText_fechaFin"
         android:layout_alignBottom="@+id/button_fechaIni"
         android:layout_toRightOf="@+id/button_fechaIni"
         android:layout_alignRight="@+id/radioGroup"
         android:layout_alignEnd="@+id/radioGroup" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_fechaIni"
-        android:layout_alignBottom="@+id/buttonfechaFin"
-        android:layout_toRightOf="@+id/button_fechaIni"
-        android:layout_alignRight="@+id/editText_fechaFin"
-        android:layout_alignEnd="@+id/editText_fechaFin" />
 
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"

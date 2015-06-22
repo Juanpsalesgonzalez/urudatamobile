@@ -28,8 +28,8 @@ public class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClien
 
         user = params[0];
         pass = params[1];
-        initDate = params[2];
-        endDate = params[3];
+        endDate = params[2];
+        initDate = params[3];
         comment = params[4];
 
         cookie=WSServices.getCookie(WSServices.loginToWS(user, pass));

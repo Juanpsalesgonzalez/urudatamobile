@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 public class LicenceConnectActivity extends ActionBarActivity {
@@ -56,9 +57,18 @@ public class LicenceConnectActivity extends ActionBarActivity {
     }
 
     public void confirmMessage(OutsourcerWebClient o) {
-        System.out.println(o.getNombre());
+        TextView status = (TextView) this.findViewById(R.id.textView_status);
+        if (o!=null) {
+            status.setText("Solicitud Realizada");
+        }   else {
+            status.setText("Error, Reintente");
+        }
     }
 
+    public void onOkButtonClicked(View v){
+        finish();
+
+    }
     /**
      * A placeholder fragment containing a simple view.
      */
