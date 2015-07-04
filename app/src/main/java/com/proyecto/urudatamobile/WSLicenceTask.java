@@ -6,9 +6,9 @@ import android.os.AsyncTask;
 /**
  * Created by juan on 26/04/15.
  */
-public class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClient>  {
+class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClient>  {
 
-    LicenceConnectActivity actividad;
+    private LicenceConnectActivity actividad;
 
     public WSLicenceTask(Activity a){
         System.out.println(a.toString());
@@ -46,8 +46,6 @@ public class WSLicenceTask extends AsyncTask <String, String, OutsourcerWebClien
     }
     @Override
     protected void onPostExecute(OutsourcerWebClient outsourcer) {
-       String s=outsourcer.getNombre();
-  //     System.out.println(s);
        actividad.confirmMessage(outsourcer);
 
     }

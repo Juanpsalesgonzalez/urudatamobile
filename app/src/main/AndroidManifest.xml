@@ -32,10 +32,6 @@
             android:theme="@style/Theme.AppCompat" >
         </activity>
         <activity
-            android:name=".IPActivity"
-            android:label="@string/title_activity_ip" >
-        </activity>
-        <activity
             android:name=".LicenceActivity"
             android:label="@string/title_activity_licencia" >
         </activity>

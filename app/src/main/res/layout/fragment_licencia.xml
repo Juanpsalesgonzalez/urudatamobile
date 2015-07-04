@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Solicitud de Licencia"
+        android:text="@string/title_activity_licencia"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -41,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_fechaIni"
+        android:hint="@string/Hint_fecha_ini"
         android:layout_alignTop="@+id/buttonfechaFin"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -51,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_fechaFin"
+        android:hint="@string/Hint_fecha_fin"
         android:layout_alignBottom="@+id/button_fechaIni"
         android:layout_toRightOf="@+id/button_fechaIni"
         android:layout_alignRight="@+id/radioGroup"
@@ -74,15 +76,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/radio_lic_comun"
                 android:onClick="onRadioButtonClicked"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <RadioButton android:id="@+id/radio_lic_estudio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/radio_lic_estudio"
-                android:onClick="onRadioButtonClicked"
-                android:layout_alignParentLeft="true" />
+                android:onClick="onRadioButtonClicked" />
 
         <RadioButton android:id="@+id/radio_lic_enfermedad"
                 android:layout_width="wrap_content"
@@ -95,9 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/radio_lic_otros"
-                android:onClick="onRadioButtonClicked"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:onClick="onRadioButtonClicked" />
     </RadioGroup>
 
     <Button

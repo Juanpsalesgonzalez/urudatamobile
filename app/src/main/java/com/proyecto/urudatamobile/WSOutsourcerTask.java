@@ -9,9 +9,9 @@ import android.app.Activity;
 import android.os.AsyncTask;
 
 
-public class WSOutsourcerTask extends AsyncTask <String, String, OutsourcerWebClient> {
+class WSOutsourcerTask extends AsyncTask <String, String, OutsourcerWebClient> {
 
-    OutNameActivity actividad;
+    private OutNameActivity actividad;
 
     public WSOutsourcerTask(Activity a){
         actividad = (OutNameActivity) a;

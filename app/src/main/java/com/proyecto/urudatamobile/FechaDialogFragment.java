@@ -1,4 +1,6 @@
-package com.proyecto.urudatamobile; /**
+package com.proyecto.urudatamobile;
+
+/**
  * Created by juan on 04/04/15.
  */
 
@@ -15,8 +17,8 @@ import java.util.Calendar;
 public  class FechaDialogFragment extends DialogFragment
     implements DatePickerDialog.OnDateSetListener {
 
-    public LicenceActivity actividadPadre;
-    public TextView textoPadre;
+    private LicenceActivity actividadPadre;
+    private TextView textoPadre;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

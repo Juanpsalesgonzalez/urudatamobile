@@ -24,9 +24,7 @@
             android:ems="10"
             android:singleLine="true"
             android:imeOptions="actionNext"
-            android:layout_below="@+id/id_label_text"
-            android:layout_alignLeft="@+id/name_label_text"
-            android:layout_alignStart="@+id/name_label_text">
+            android:layout_below="@+id/id_label_text">
             <requestFocus />
         </EditText>
         <TextView

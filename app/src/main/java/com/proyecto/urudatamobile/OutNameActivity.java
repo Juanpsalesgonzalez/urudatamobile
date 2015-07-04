@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 public class OutNameActivity extends ActionBarActivity {
 
-    String name,pass,user;
+    String name;
+    private String pass;
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,36 +55,6 @@ public class OutNameActivity extends ActionBarActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
@@ -92,7 +64,7 @@ public class OutNameActivity extends ActionBarActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    protected void salir(){
+    private void salir(){
         finish();
         MainActivity.setQuit(true);
     }

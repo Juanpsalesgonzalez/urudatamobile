@@ -18,9 +18,10 @@ import java.util.Calendar;
 public class LicenceActivity extends ActionBarActivity {
 
 
-    String comment;
-    String user, pass;
-    OutsourcerWebClient outsourcer;
+    private String comment;
+    private String user;
+    private String pass;
+    private OutsourcerWebClient outsourcer;
 
     String initDate, endDate;
 
@@ -69,12 +70,12 @@ public class LicenceActivity extends ActionBarActivity {
         mostrarDatePicker(v, t);
     }
 
-    public void mostrarDatePicker(View v, TextView t) {
+    private void mostrarDatePicker(View v, TextView t) {
         t.setText(HttpUtils.currDate());
-        //FechaDialogFragment fechaFragment = new FechaDialogFragment();
-        //fechaFragment.setActividadPadre(this);
-        //fechaFragment.setTextoPadre(t);
-        //fechaFragment.show(getFragmentManager(), "Calendario");
+        FechaDialogFragment fechaFragment = new FechaDialogFragment();
+        fechaFragment.setActividadPadre(this);
+        fechaFragment.setTextoPadre(t);
+        fechaFragment.show(getFragmentManager(), "Calendario");
     }
 
     public void setDate(TextView t, int ano, int mes, int dia) {
@@ -140,12 +141,6 @@ public class LicenceActivity extends ActionBarActivity {
         initDateTV = (TextView)this.findViewById(R.id.editText_fechaFin);
         initDate = initDateTV.getText().toString();
         endDate = endDateTV.getText().toString();
-        if (initDate == null) {
-            initDate = day + "/" + month + "/" + year;
-        }
-        if (endDate == null) {
-            endDate = day + "/" + month + "/" + year;
-        }
         if (comment == null){
             comment="Licencia por Enfermedad";
         }
@@ -186,8 +181,7 @@ public class LicenceActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_licencia, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_licencia, container, false);
         }
     }
 }

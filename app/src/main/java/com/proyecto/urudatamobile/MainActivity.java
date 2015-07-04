@@ -18,12 +18,11 @@ package com.proyecto.urudatamobile;
 
         /**
          * Called when the activity is first created.
-         * @param savedInstanceState If the activity is being re-initialized after
          * previously being shut down then this Bundle contains the data it most
          * recently supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it is null.</b>
          */
 
-    public static boolean isQuit = false;
+    private static boolean isQuit = false;
 
 // Metodos de Android, se sobrescriben,
 
@@ -92,7 +91,7 @@ package com.proyecto.urudatamobile;
          startActivity(intent);
      }
 
-     private Intent loadIntent(Intent intent, View view){
+     private void loadIntent(Intent intent, View view){
 
          EditText editTextName = (EditText) findViewById(R.id.id_outsourcer);
          String name = editTextName.getText().toString();
@@ -100,7 +99,7 @@ package com.proyecto.urudatamobile;
          String pass = editTextPass.getText().toString();
          intent.putExtra("name_outsourcer", name);
          intent.putExtra("pass_outsourcer", pass);
-         return intent;
+        // return intent;
      }
 
 
@@ -115,8 +114,7 @@ public static class PlaceholderFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_main, container, false);
         }
     }
 }

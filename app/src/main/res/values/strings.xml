@@ -6,8 +6,6 @@
 
     <string name="main_id_label_text">Ingrese su usuario:</string>
     <string name="main_pass_label_text">Ingrese su contraseña</string>
-    <string name="title_activity_main">CTR - Entrada/salida</string>
-    <string name="title_activity_main_activity_fragment">CTR - Entrada/salida</string>
     <string name="main_button_marca">Marcar</string>
 
     <string name="title_activity_out_name">CTR - Entrada/salida</string>
@@ -17,28 +15,23 @@
     <string name="menu_action_close">Salir</string>
     <string name="button_close">Cerrar</string>
     <string name="title_activity_ip">IPActivity</string>
-    <string name="button_marcar">Marcar</string>
     <string name="button_licencia">Licencias</string>
     <string name="button_fechaIni">Fecha Inicio</string>
     <string name="button_fechaFin">Fecha Fin</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_licencia">CTR - Gestión de Licencias</string>
+    <string name="title_activity_licence_connect">connectando...</string>
 
     <string name="radio_lic_comun">Licencia Reglamentaria</string>
     <string name="radio_lic_estudio">Licencia por Estudio</string>
     <string name="radio_lic_enfermedad">Licencia por Enfermedad</string>
-    <string name="radio_lic_donar_sangre">Donación de Sangre</string>
     <string name="radio_lic_otros">Licencia por otros motivos</string>
-    <string name="radio_lic">Tipo de Licencia</string>
     <string name="button_confirma_lic">Confirma</string>
+    <string name="Ok">Ok</string>
+    <string name="Nulo"></string>
 
-
-
-    <string name="URL_CONFIRM">http://192.168.1.2:8080/urudata/rest/confirm</string>
-    <string name="URL_SET_LICENSE">http://192.168.1.2:8080/urudata/rest/setLicense</string>
-    <string name="URL_LOGIN_PROCESS">http://192.168.1.2:8080/urudata/loginProcess</string>
-    <string name="title_activity_licence_connect">LicenceConnectActivity</string>
-
+    <string name="Hint_fecha_ini">Fecha de inicio de licencia</string>
+    <string name="Hint_fecha_fin">Fecha de fin de licencia</string>
+    <string name="Hint_name">Nombre de Usuario</string>
 
 </resources>

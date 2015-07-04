@@ -15,16 +15,16 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 /**
- * Created by juan on 26/04/15.
+ * Autor: JPS - 26/04/15.
+ * Servicios de cliente Web Services
  */
 
 
-public class WSServices {
+class WSServices {
 
 
     public static OutsourcerWebClient outByName(String cookie, String user) {
 
-        OutsourcerWebClient t = null;
         String url;
 
         url = Constants.URL_CONFIRM;
@@ -43,26 +43,22 @@ public class WSServices {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ;
 
         if (response == null) {
             return null;
         }
         String s = response.getBody();
-        JSONObject j = null;
         String n = null;
         String i = null;
         try {
-            j = new JSONObject(s);
+            JSONObject j = new JSONObject(s);
             n = j.get("nombre").toString();
             i = j.get("id").toString();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        OutsourcerWebClient o = new OutsourcerWebClient(n, i);
-
-        return o;
+        return new OutsourcerWebClient(n, i);
     }
 
     public static ResponseEntity loginToWS(String user, String pass) {
@@ -84,7 +80,6 @@ public class WSServices {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-        System.out.println(response.toString());
         if (response == null) {
             return null;
         }
@@ -98,7 +93,7 @@ public class WSServices {
     public static String getCookie(ResponseEntity response) {
 
         String cookieField, cookieValue;
-        String[] cookieSubFields, cookieLastFields;
+        String[] cookieSubFields;
 
         try {
             HttpHeaders headers = response.getHeaders();
@@ -120,8 +115,6 @@ public class WSServices {
 
     public static OutsourcerWebClient setLicense(String user, String cookie, String initDate, String endDate, String comment) {
         {
-            System.out.println("Set Licence");
-            OutsourcerWebClient t = null;
             String url;
             String url_user, url_idate, url_edate, url_comm;
             String sep = "?";    //url_separator
@@ -154,11 +147,10 @@ public class WSServices {
             }
             System.out.println(response.toString());
             String s = response.getBody();
-            JSONObject j = null;
             String n = null;
             String i = null;
             try {
-                j = new JSONObject(s);
+                JSONObject j = new JSONObject(s);
                 n = j.get("nombre").toString();
                 i = j.get("id").toString();
             } catch (Exception e) {
