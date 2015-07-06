@@ -53,16 +53,13 @@ package com.proyecto.urudatamobile;
          @Override
          public boolean onOptionsItemSelected(MenuItem item) {
 
-             switch (item.getItemId()) {
-
-                 case R.id.action_close:
-                     System.out.println("Cerrando  el MAIN....");
-                     finish();
-
-                 default:
-                     return super.onOptionsItemSelected(item);
+             if (item.getItemId() ==  R.id.action_close) {
+                 System.out.println("Cerrando  el MAIN....");
+                 finish();
              }
-         }
+             return super.onOptionsItemSelected(item);
+
+          }
          @Override
          protected void onRestart() {
                      super.onRestart();
