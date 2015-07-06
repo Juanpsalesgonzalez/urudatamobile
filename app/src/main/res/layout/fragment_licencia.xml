@@ -76,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/radio_lic_comun"
                 android:onClick="onRadioButtonClicked"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <RadioButton android:id="@+id/radio_lic_estudio"
@@ -108,5 +109,16 @@
         android:layout_below="@+id/radioGroup"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Button_Certificate"
+        android:id="@+id/button_cert"
+        android:onClick="SeleccionaCertificado"
+        android:layout_below="@+id/radioGroup"
+        android:layout_toStartOf="@+id/editText_fechaIni"
+        android:layout_toLeftOf="@+id/editText_fechaIni" />
 
 </RelativeLayout>

@@ -28,7 +28,11 @@
     <string name="radio_lic_otros">Licencia por otros motivos</string>
     <string name="button_confirma_lic">Confirma</string>
     <string name="Ok">Ok</string>
-    <string name="Nulo"></string>
+    <string name="Nulo"> </string>
+
+    <string name="title_activity_photo">Seleccione el certificado</string>
+
+    <string name="Button_Certificate">Adjuntar Certificado</string>
 
     <string name="Hint_fecha_ini">Fecha de inicio de licencia</string>
     <string name="Hint_fecha_fin">Fecha de fin de licencia</string>

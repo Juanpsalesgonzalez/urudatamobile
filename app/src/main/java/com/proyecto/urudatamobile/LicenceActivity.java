@@ -3,7 +3,7 @@ package com.proyecto.urudatamobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 
-public class LicenceActivity extends ActionBarActivity {
+public class LicenceActivity extends AppCompatActivity{
 
 
     private String comment;
@@ -162,7 +162,10 @@ public class LicenceActivity extends ActionBarActivity {
     }
 
 
-//        new WSLicenceTask(this).execute(user, pass, endDate, initDate, comment);
+    public void SeleccionaCertificado(View v){
+        Intent certIntent = new Intent(this,PhotoActivity.class);
+        startActivity(certIntent);
+    }
 
 
     public void confirmMessage(OutsourcerWebClient o) {
