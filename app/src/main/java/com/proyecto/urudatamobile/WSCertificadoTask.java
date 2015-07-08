@@ -6,11 +6,11 @@ import android.os.AsyncTask;
 /**
  * Created by juan on 26/04/15.
  */
-class WSLicenceTask extends AsyncTask <String, String, PeticionWebClient>  {
+class WSCertificadoTask extends AsyncTask <String, String, PeticionWebClient>  {
 
     private LicenceConnectActivity actividad;
 
-    public WSLicenceTask(Activity a){
+    public WSCertificadoTask(Activity a){
         System.out.println(a.toString());
         actividad = (LicenceConnectActivity) a;
     }
@@ -18,22 +18,20 @@ class WSLicenceTask extends AsyncTask <String, String, PeticionWebClient>  {
     @Override
     protected PeticionWebClient doInBackground(String... params) {
 
-        String user, pass,endDate,initDate,comment, cert, cookie;
+        String pId, cert,user, pass;
+        String cookie;
 
-
-        user = params[0];
-        pass = params[1];
-        endDate = params[2];
-        initDate = params[3];
-        comment = params[4];
-        cert= params[5];
+        user=params[0];
+        pass=params[1];
+        pId = params[2];
+        cert = params[3];
 
         cookie=WSServices.getCookie(WSServices.loginToWS(user, pass));
         if (cookie ==null){
             return null;
         }
 
-        PeticionWebClient peticion = WSServices.setLicense(user,cookie,initDate,endDate,comment);
+        PeticionWebClient peticion = WSServices.setCertificate(cookie,pId, cert);
         if (peticion ==null){
             return null;
         }

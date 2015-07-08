@@ -1,5 +1,6 @@
 package com.proyecto.urudatamobile;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class PhotoActivity extends AppCompatActivity{
 
     ArrayList<String> selectedPhotos = new ArrayList<>();
 
-    public final static int REQUEST_CODE = 1;
+    public final static int PHOTO_REQUEST_CODE = 123;
 
 
     @Override protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +38,20 @@ public class PhotoActivity extends AppCompatActivity{
         PhotoPickerIntent intent = new PhotoPickerIntent(PhotoActivity.this);
         intent.setPhotoCount(1);
         intent.setShowCamera(true);
-        startActivityForResult(intent, REQUEST_CODE);
+        startActivityForResult(intent, PHOTO_REQUEST_CODE);
     }
 
     public void previewPhoto(Intent intent) {
-        startActivityForResult(intent, REQUEST_CODE);
+        startActivityForResult(intent, PHOTO_REQUEST_CODE);
     }
 
 
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        //  Carga lista con fotos seleccionadas.
         List<String> photos = null;
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+        if (resultCode == RESULT_OK && requestCode == PHOTO_REQUEST_CODE) {
             if (data != null) {
                 photos = data.getStringArrayListExtra(PhotoPickerActivity.KEY_SELECTED_PHOTOS);
             }
@@ -59,7 +61,15 @@ public class PhotoActivity extends AppCompatActivity{
 
                 selectedPhotos.addAll(photos);
             }
-            photoAdapter.notifyDataSetChanged();
+            //photoAdapter.notifyDataSetChanged();
+
+            // Devuelve la primera foto selecionada.
+            Bundle b = new Bundle();
+            b.putString("photo",selectedPhotos.get(0));
+            Intent i = getIntent(); //gets the intent that called this intent
+            i.putExtras(b);
+            setResult(Activity.RESULT_OK, i);
+            finish();
         }
     }
 

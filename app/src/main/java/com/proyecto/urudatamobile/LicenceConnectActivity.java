@@ -29,8 +29,9 @@ public class LicenceConnectActivity extends ActionBarActivity {
         String user = conIntent.getStringExtra("name");
         String pass = conIntent.getStringExtra("pass");
         String comment = conIntent.getStringExtra("comment");
+        String certificado = conIntent.getStringExtra("certificado");
         System.out.println(this.toString());
-        new WSLicenceTask(this).execute(user, pass, endDate, initDate, comment);
+        new WSLicenceTask(this).execute(user, pass, endDate, initDate, comment, certificado);
     }
 
 
@@ -56,10 +57,10 @@ public class LicenceConnectActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void confirmMessage(OutsourcerWebClient o) {
+    public void confirmMessage(PeticionWebClient p) {
         TextView status = (TextView) this.findViewById(R.id.textView_status);
-        if (o!=null) {
-            status.setText("Solicitud Realizada");
+        if (p!=null) {
+            status.setText("Solicitud Realizada : " + p.getIdPeticion().toString());
         }   else {
             status.setText("Error, Reintente");
         }

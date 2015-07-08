@@ -22,7 +22,9 @@ public class LicenceActivity extends AppCompatActivity{
     private String user;
     private String pass;
     private OutsourcerWebClient outsourcer;
+    private String cert =null;
 
+    public final static int PHOTO_REQUEST_CODE = 123;
     String initDate, endDate;
 
     @Override
@@ -157,16 +159,34 @@ public class LicenceActivity extends AppCompatActivity{
         conIntent.putExtra("name",user);
         conIntent.putExtra("pass",pass);
         conIntent.putExtra("comment",comment);
+        conIntent.putExtra("certificado",cert);
         startActivity(conIntent);
         finish();
     }
 
 
-    public void SeleccionaCertificado(View v){
+    public void SeleccionaCertificado(View v) {
+
         Intent certIntent = new Intent(this,PhotoActivity.class);
-        startActivity(certIntent);
+        startActivityForResult(certIntent, PHOTO_REQUEST_CODE);
     }
 
+    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        String photo = null;
+
+        if (resultCode == RESULT_OK && requestCode == PHOTO_REQUEST_CODE) {
+
+            if (data != null) {
+                photo = data.getExtras().getString("photo");
+            }
+
+            if (photo != null) {
+                cert = photo;
+            }
+        }
+    }
 
     public void confirmMessage(OutsourcerWebClient o) {
         System.out.println(o.getNombre());

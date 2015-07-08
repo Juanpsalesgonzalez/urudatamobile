@@ -9,5 +9,6 @@ class Constants {
     public static final String URL_CONFIRM="http://" + ip_ctr + ":8080/urudata/rest/confirm";
     public static final String URL_SET_LICENSE="http://" + ip_ctr + ":8080/urudata/rest/setLicence";
     public static final String URL_LOGIN_PROCESS="http://" + ip_ctr + ":8080/urudata/loginProcess";
+    public static final String URL_UPLOAD_CERT="http://" + ip_ctr + ":8080/urudata/uploadCert";
 
 }

@@ -1,6 +1,15 @@
 package com.proyecto.urudatamobile;
 
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.CoreProtocolPNames;
 import org.json.JSONObject;
 import org.springframework.http.ContentCodingType;
 import org.springframework.http.HttpEntity;
@@ -12,6 +21,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -113,7 +123,55 @@ class WSServices {
 
     }
 
-    public static OutsourcerWebClient setLicense(String user, String cookie, String initDate, String endDate, String comment) {
+    public static PeticionWebClient setCertificate(String cookie, String pId, String cert) {
+
+        String url=Constants.URL_UPLOAD_CERT + "?pId=" + pId;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Cookie", cookie);
+        headers.set("Content-type", "binary/octet-stream");
+        headers.setContentEncoding(ContentCodingType.ALL);
+
+        HttpClient httpclient = new DefaultHttpClient();
+        httpclient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
+
+        HttpPost httppost = new HttpPost(url);
+        File file = new File(cert);
+
+        httppost.setHeader((Header) headers);
+        MultipartEntity mpEntity = new MultipartEntity();
+
+        ContentBody cbFile = new FileBody(file, "multipart/form-data");
+        mpEntity.addPart("file", cbFile);
+
+
+        httppost.setEntity(mpEntity);
+        System.out.println("executing request " + httppost.getRequestLine());
+        HttpResponse response = null;
+        try {
+            response = httpclient.execute(httppost);
+        }catch (Exception e){e.printStackTrace();}
+
+        HttpEntity resEntity = (HttpEntity) response.getEntity();
+
+        System.out.println(response.getStatusLine());
+        if (resEntity != null) {
+            System.out.println(resEntity.toString());
+        }
+        if (resEntity != null) {
+        //      resEntity.consumeContent();
+        }
+
+        httpclient.getConnectionManager().shutdown();
+        PeticionWebClient p = null;
+        return p;
+    }
+
+
+
+
+
+    public static PeticionWebClient setLicense(String user, String cookie, String initDate, String endDate, String comment) {
         {
             String url;
             String url_user, url_idate, url_edate, url_comm;
@@ -147,19 +205,20 @@ class WSServices {
             }
             System.out.println(response.toString());
             String s = response.getBody();
-            String n = null;
-            String i = null;
+            Long oId=null;
+            Long pId = null;
             try {
                 JSONObject j = new JSONObject(s);
-                n = j.get("nombre").toString();
-                i = j.get("id").toString();
+                pId=Long.getLong(j.get("id").toString());
+                oId=Long.getLong(j.get("idOutsourcer").toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            OutsourcerWebClient o = new OutsourcerWebClient(n, i);
+            PeticionWebClient p = new PeticionWebClient(pId, initDate, endDate ,oId,comment);
 
-            return o;
+
+            return p;
         }
     }
 }
