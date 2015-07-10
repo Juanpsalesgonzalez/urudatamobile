@@ -33,11 +33,11 @@ class WSLicenceTask extends AsyncTask <String, String, PeticionWebClient>  {
             return null;
         }
 
-        PeticionWebClient peticion = WSServices.setLicense(user,cookie,initDate,endDate,comment);
-        if (peticion ==null){
+//        PeticionWebClient peticion = WSServices.setLicense(user,cookie,initDate,endDate,comment);
+//        if (peticion ==null){
             return null;
-        }
-        return peticion;
+//        }
+//        return peticion;
 
     }
     @Override

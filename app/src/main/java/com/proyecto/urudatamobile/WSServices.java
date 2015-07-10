@@ -1,15 +1,6 @@
 package com.proyecto.urudatamobile;
 
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
-import org.apache.http.HttpVersion;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.content.ContentBody;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.CoreProtocolPNames;
 import org.json.JSONObject;
 import org.springframework.http.ContentCodingType;
 import org.springframework.http.HttpEntity;
@@ -21,7 +12,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -123,7 +113,7 @@ class WSServices {
 
     }
 
-    public static PeticionWebClient setCertificate(String cookie, String pId, String cert) {
+  /*  public static PeticionWebClient setCertificate(String cookie, String pId, String cert) {
 
         String url=Constants.URL_UPLOAD_CERT + "?pId=" + pId;
 
@@ -220,5 +210,5 @@ class WSServices {
 
             return p;
         }
-    }
+    } */
 }

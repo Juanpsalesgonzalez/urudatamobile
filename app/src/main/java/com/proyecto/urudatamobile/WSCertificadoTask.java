@@ -1,3 +1,4 @@
+
 package com.proyecto.urudatamobile;
 
 import android.app.Activity;
@@ -6,16 +7,17 @@ import android.os.AsyncTask;
 /**
  * Created by juan on 26/04/15.
  */
-class WSCertificadoTask extends AsyncTask <String, String, PeticionWebClient>  {
+class WSCertificadoTask extends AsyncTask <String, String, PeticionWebClient> {
 
     private LicenceConnectActivity actividad;
 
-    public WSCertificadoTask(Activity a){
+    public WSCertificadoTask(Activity a) {
         System.out.println(a.toString());
         actividad = (LicenceConnectActivity) a;
     }
 
-    @Override
+
+//    @Override
     protected PeticionWebClient doInBackground(String... params) {
 
         String pId, cert,user, pass;
@@ -31,11 +33,11 @@ class WSCertificadoTask extends AsyncTask <String, String, PeticionWebClient>  {
             return null;
         }
 
-        PeticionWebClient peticion = WSServices.setCertificate(cookie,pId, cert);
-        if (peticion ==null){
+//       PeticionWebClient peticion = WSServices.setCertificate(cookie,pId, cert);
+//        if (peticion ==null){
             return null;
-        }
-        return peticion;
+//        }
+//        return peticion;
 
     }
     @Override
@@ -44,4 +46,3 @@ class WSCertificadoTask extends AsyncTask <String, String, PeticionWebClient>  {
 
     }
 }
-
