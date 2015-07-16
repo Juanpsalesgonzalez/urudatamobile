@@ -73,7 +73,7 @@ public class LicenceActivity extends AppCompatActivity{
     }
 
     private void mostrarDatePicker(View v, TextView t) {
-        t.setText(HttpUtils.currDate());
+        t.setText(DateUtils.currDate());
         FechaDialogFragment fechaFragment = new FechaDialogFragment();
         fechaFragment.setActividadPadre(this);
         fechaFragment.setTextoPadre(t);

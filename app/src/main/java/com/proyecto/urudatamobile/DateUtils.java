@@ -5,7 +5,7 @@ import java.util.Calendar;
 /**
  * Created by juan on 07/03/15.
  */
-class HttpUtils {
+class DateUtils {
 
     public static String currDate(){
 
